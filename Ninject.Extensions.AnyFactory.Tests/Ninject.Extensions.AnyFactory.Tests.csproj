@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D8988C4F-318B-49C1-9830-9173915C4410}</ProjectGuid>
+    <ProjectGuid>{9D859B18-B43E-40A5-B636-E350A17D5191}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ninject.Extensions.AnyFactory</RootNamespace>
-    <AssemblyName>Ninject.Extensions.AnyFactory</AssemblyName>
+    <RootNamespace>Ninject.Extensions.AnyFactory.Tests</RootNamespace>
+    <AssemblyName>Ninject.Extensions.AnyFactory.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -32,20 +32,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\Ninject.Extensions.AnyFactory\Lib\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
-      <HintPath>Lib\Ninject.dll</HintPath>
+      <HintPath>..\Ninject.Extensions.AnyFactory\Lib\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.0.11089, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ninject.Extensions.AnyFactory\Lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnyFactoryModule.cs" />
+    <Compile Include="..\Ninject.Extensions.AnyFactory\AnyFactory.cs">
+      <Link>AnyFactory.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ninject.Extensions.AnyFactory\Ninject.Extensions.AnyFactory.csproj">
+      <Project>{D8988C4F-318B-49C1-9830-9173915C4410}</Project>
+      <Name>Ninject.Extensions.AnyFactory</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

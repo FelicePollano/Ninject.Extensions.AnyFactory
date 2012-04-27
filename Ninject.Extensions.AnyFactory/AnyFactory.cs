@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
-using Ors.TimeSeries.Engine.Impl;
 using Ninject;
 using Moq;
 using Ninject.Parameters;
 using NInject.Extensions.AnyFactory;
 
-namespace Ors.TimeSeries.Engine.Tests
+namespace Ninject.Extensions.AnyFactory.Tests
 {
     public interface ISomeFactory
     {
@@ -49,6 +48,20 @@ namespace Ors.TimeSeries.Engine.Tests
  
     }
 
+    public class DependsOnISomeFactory
+    {
+        ICustomFormatter created;
+        public DependsOnISomeFactory(ISomeFactory dep)
+        {
+            created = dep.CreateOne();
+        }
+        public bool IsInitialized()
+        {
+            return created != null;
+        }
+    }
+
+
     class MyServiceImpl : IMyService
     {
         public string ConstructionString { get; set; }
@@ -66,6 +79,14 @@ namespace Ors.TimeSeries.Engine.Tests
     [TestFixture]
     public class AnyFactory
     {
+        [Test]
+        public void Check_ADependency_On_Any_Factory()
+        {
+            var kernel = new StandardKernel();
+            kernel.Bind<ICustomFormatter>().ToConstant(new Mock<ICustomFormatter>().Object).Named("One");
+            var obj = kernel.Get<DependsOnISomeFactory>();
+            Assert.IsTrue(obj.IsInitialized());
+        }
         [Test]
         public void Check_Any_Factory_With_Single_Method_No_Args()
         {

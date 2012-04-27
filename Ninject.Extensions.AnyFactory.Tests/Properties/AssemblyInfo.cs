@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Ninject.Extensions.AnyFactory")]
+[assembly: AssemblyTitle("Ninject.Extensions.AnyFactory.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("Ninject.Extensions.AnyFactory")]
+[assembly: AssemblyProduct("Ninject.Extensions.AnyFactory.Tests")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,8 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("58263914-439f-4501-b1dc-0d7d447e102f")]
-[assembly: InternalsVisibleTo("Ninject.Extensions.AnyFactory.Tests")]
+[assembly: Guid("fee35c7a-c543-45ed-8eab-c0dab2b5a673")]
 
 // Version information for an assembly consists of the following four values:
 //
